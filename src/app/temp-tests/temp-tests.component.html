@@ -1,0 +1,55 @@
+<div>
+    <strong>Tuner</strong>
+    <div>
+        Note:
+        <h1>
+            <span *ngIf="currentNote">
+                {{currentNote}}
+            </span>
+            <span *ngIf="!currentNote">
+                None
+            </span> 
+        </h1>
+        <p *ngIf="frequency">
+            Frequency: 
+            {{frequency}}
+        </p>
+        <p *ngIf="differenceFromNote">
+            Difference from Note:
+            {{differenceFromNote}}
+        </p>
+    </div>
+    <div>
+        <button
+            (click)="onListen()"
+        >
+            Listen
+        </button>
+        <button
+            (click)="onStopListening()"
+        >
+            Stop
+        </button>
+    </div>
+</div>
+<br>
+<div>
+    <strong>Audio Devices:</strong>
+    <ul *ngIf="audioDevices">
+        <li *ngFor="let device of audioDevices">
+            <span *ngIf="device.deviceId=='default'">
+                * 
+            </span>
+            {{device.label}}
+        </li>
+    </ul>
+</div>
+<div>
+    <canvas #canvas [width]="canvasWidth" [height]="canvasHeight" style="background: lightblue;">
+    </canvas>
+</div>
+<!-- <div *ngIf="dataArray">
+    <span *ngFor="let x of dataArray">
+        | {{x}} 
+    </span>
+</div> -->

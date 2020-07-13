@@ -1,0 +1,16 @@
+<div>
+    <button (click)="streamAudio()">
+        Listen
+    </button>
+    <button (click)="endStream()">
+        Stop
+    </button>
+</div>
+<!-- <audio *ngIf="stream" autoplay [srcObject]="stream"></audio> -->
+<div>
+    <canvas #canvas [width]="canvasWidth" [height]="canvasHeight" style="background: lightblue;">
+    </canvas>
+</div>
+<div *ngIf="tempFeedback">
+    {{tempFeedback}}
+</div>
